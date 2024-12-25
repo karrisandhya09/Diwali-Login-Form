@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-image: url("https://i.pinimg.com/originals/ba/ac/58/baac58945b49a769f06f55e0bb17eaf9.gif");
+            min-height: 100vh;
+            background-size: cover;
+        }
+
+        .form {
+            background-color: white;
+            margin-top: 10%;
+            margin-right: 70%;
+            margin-left: 0%;
+            border-radius: 10%;
+            width: 40%;
+
+        }
+
+        .form {
+            text-align: center;
+            margin-left: 10%;
+
+
+        }
+
+        .Login-form input {
+            padding: 5px;
+            text-align: center;
+            margin: 10px;
+            width: 60%;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="form">
+
+        <form id="loginform" action="diwali.html">
+            <h1>LOGIN</h1>
+
+
+            <div class=" Login-form">
+                <input type="email" required id="email" placeholder="Username">
+            </div>
+            <div class="Login-form">
+                <input type="password" required id="password" placeholder=" Password">
+
+            </div>
+
+            <div class="Submit">
+                <button class="Login-btn">Login</button>
+            </div>
+            <p>Don't have an account
+                <a href="index.html">Sign Up</a>
+
+
+            </p>
+
+    </div>
+    </form>
+    <script>
+        document.getElementById("loginform").addEventListener("submit", function (e) {
+            e.preventDefault()
+            var email = document.getElementById("email").value
+            var password = document.getElementById("password").value
+            var users = JSON.parse(localStorage.getItem("users"))
+            var validUser = users.find(user => user.email === email && user.password === password)
+            if (validUser) {
+                localStorage.setItem("newUser", email)
+            }
+            else {
+                alert("Invalid password")
+                return
+            }
+            alert("login successful")
+
+            window.location.href = "diwali.html"
+        })
+    </script>
+
+
+</body>
+
+</html>
